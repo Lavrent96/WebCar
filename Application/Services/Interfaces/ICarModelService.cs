@@ -11,6 +11,7 @@ namespace Application.Services.Interfaces
     {
         Task<CarModel> GetByIdAsync(int id);
         Task<List<CarModel>> GetAllAsync();
+        Task<List<CarModel>> GetAllByBrandIdAsync(int carBrandId);
         Task<List<CarModel>> GetAsync();
         Task<CarModel> AddAsync(CarModel carModel);
         Task<CarModel> UpdateAsync(int id, CarModel carModel);

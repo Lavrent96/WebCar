@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.ConfigureAppServices();
 builder.Services.AddWebCarApplicationDI();
 builder.Services.ConfigureAppDbContext(builder.Configuration);
-
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

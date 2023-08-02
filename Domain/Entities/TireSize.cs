@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Tire
+    public class TireSize
     {
         public int Id { get; set; }
         public int Diameter { get; set; }

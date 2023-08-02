@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Database.EntityConfigurations
 {
-    public class TireEntityConfiguration : IEntityTypeConfiguration<Tire>
+    public class TireEntityConfiguration : IEntityTypeConfiguration<TireSize>
     {
-        public void Configure(EntityTypeBuilder<Tire> builder)
+        public void Configure(EntityTypeBuilder<TireSize> builder)
         {
-            builder.ToTable("tire");
+            builder.ToTable("tire_size");
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Diameter).HasColumnName("diameter");
             builder.Property(c => c.Width).HasColumnName("width");

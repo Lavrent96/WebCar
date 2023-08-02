@@ -10,6 +10,6 @@ namespace Application.Repositories.Interfaces
     public interface ICarModelRepository : IRepository<CarModel>
     {
         Task<CarModel> GetByIdAsync(int id);
-
+        Task<List<CarModel>> GetByBrandIdAsync(int brandId);
     }
 }

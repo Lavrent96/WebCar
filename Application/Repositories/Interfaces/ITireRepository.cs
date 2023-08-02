@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Repositories.Interfaces
 {
-    public interface ITireRepository : IRepository<Tire>
+    public interface ITireRepository : IRepository<TireSize>
     {
-        Task<Tire> GetByIdAsync(int id);
+        Task<TireSize> GetByIdAsync(int id);
 
     }
 }

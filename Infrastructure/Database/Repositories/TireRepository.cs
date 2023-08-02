@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Database.Repositories
 {
-    public class TireRepository : Repository<Tire>, ITireRepository
+    public class TireRepository : Repository<TireSize>, ITireRepository
     {
-        private readonly DbSet<Tire> _dbSet;
+        private readonly DbSet<TireSize> _dbSet;
 
         public TireRepository(WebCarDbContext context) : base(context)
         {
-            _dbSet = context.Set<Tire>();
+            _dbSet = context.Set<TireSize>();
         }
 
-        public async Task<Tire> GetByIdAsync(int id)
+        public async Task<TireSize> GetByIdAsync(int id)
         {
             return await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
         }

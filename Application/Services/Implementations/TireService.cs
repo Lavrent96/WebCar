@@ -13,27 +13,27 @@ namespace Application.Services.Implementations
             _tireRepository = tireRepository;
         }
 
-        public async Task<Tire> AddAsync(Tire tire)
+        public async Task<TireSize> AddAsync(TireSize tire)
         {
             return await _tireRepository.Add(tire);
         }
 
-        public async Task<List<Tire>> GetAllAsync()
+        public async Task<List<TireSize>> GetAllAsync()
         {
             return await _tireRepository.GetAll();
         }
 
-        public async Task<List<Tire>> GetAsync()
+        public async Task<List<TireSize>> GetAsync()
         {
             return await _tireRepository.GetAll();
         }
 
-        public async Task<Tire> GetByIdAsync(int id)
+        public async Task<TireSize> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Tire> UpdateAsync(int id, Tire tire)
+        public async Task<TireSize> UpdateAsync(int id, TireSize tire)
         {
             throw new NotImplementedException();
         }

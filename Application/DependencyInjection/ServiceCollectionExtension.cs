@@ -1,5 +1,4 @@
-﻿using Application.Commands;
-using Application.Services.Implementations;
+﻿using Application.Services.Implementations;
 using Application.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +14,6 @@ namespace Application.DependencyInjection
     {
         public static void AddWebCarApplicationDI(this IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCarModelCommand).Assembly));
 
             // Services 
             services.AddScoped<ICarModelService, CarModelService>();

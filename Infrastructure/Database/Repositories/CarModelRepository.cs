@@ -22,5 +22,10 @@ namespace Infrastructure.Database.Repositories
         {
             return await _dbSet.Include(e=>e.Tires).FirstOrDefaultAsync(e => e.Id == id);
         }
+
+        public async Task<List<CarModel>> GetByBrandIdAsync(int brandId)
+        {
+            return await _dbSet.Where(e => e.CarBrandId == brandId).ToListAsync();
+        }
     }
 }

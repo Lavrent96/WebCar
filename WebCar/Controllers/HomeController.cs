@@ -1,11 +1,12 @@
-﻿using Application.Commands;
-using Application.Queries;
+﻿using Application.Services.Implementations;
+using Application.Services.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using WebCar.Models;
 
 namespace WebCar.Controllers
@@ -13,29 +14,19 @@ namespace WebCar.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IMediator _mediator;
-
-        public HomeController(ILogger<HomeController> logger, IMediator mediator)
+        private readonly ICarModelService _carModelService;
+        private readonly ICarBrandService _carBrandService;
+        private readonly ITireService _tireService;
+        public HomeController(ILogger<HomeController> logger, ICarModelService carModelService, ICarBrandService carBrandService, ITireService tireService)
         {
-            _mediator = mediator;
             _logger = logger;
+            _carModelService = carModelService;
+            _carBrandService = carBrandService;
+            _tireService = tireService;
         }
 
         public async Task<ActionResult> Index()
         {
-            var res = new Domain.Entities.CarBrand()
-            {
-                Name = "Mercedes Benz",
-                Description = "Mercedes Benz",
-                LogoUrl = ""
-            };
-
-
-            var carModel = new CreateCarBrandCommand(res);
-             await _mediator.Send(carModel);
-
-
-
 
             var listDataView = new ListDataView();
             await PopulateDropdownsAsync(listDataView);
@@ -57,15 +48,19 @@ namespace WebCar.Controllers
             return null;
         }
 
+        [HttpGet]
+        public async  Task<JsonResult> GetCarModelsByBrand(int carBrandId)
+        {
+
+            var result= await _carModelService.GetAllByBrandIdAsync(carBrandId);
+            return Json(result);    
+
+        }
         private async Task PopulateDropdownsAsync(ListDataView listDataView)
         {
-            var getAllCarBrandQuery = new GetAllCarBrandQuery();
-            var getAllCarModelQuery = new GetAllCarModelQuery();
-            var getAllTireTypeQuery = new GetAllTireTypeQuery();
-
-            var carBrands = await _mediator.Send(getAllCarBrandQuery);
-            var carModels = await _mediator.Send(getAllCarModelQuery);
-            var tireTypes = await _mediator.Send(getAllTireTypeQuery);
+            var carBrands = await _carBrandService.GetAllAsync();
+            var carModels = await _carModelService.GetAllAsync();
+            var tireSizes = await _tireService.GetAllAsync();
 
             listDataView.CarBrands = carBrands.Select(brand => new SelectListItem
             {
@@ -79,6 +74,21 @@ namespace WebCar.Controllers
                 Text = model.Name,
                 Value = model.Id.ToString()
             }).ToList();
+
+            listDataView.TireSize = tireSizes.Select(model => new SelectListItem
+            {
+                Text = model.Width.ToString(),
+                Value = model.Id.ToString()
+            }).ToList();
+
+            listDataView.TireType = Enum.GetValues(typeof(TireType))
+                                                   .Cast<TireType>()
+                                                   .Select(tt => new SelectListItem
+                                                   {
+                                                       Text = tt.ToString(),
+                                                       Value = tt.ToString()
+                                                   })
+                                                   .ToList();
         }
 
         public IActionResult Privacy()

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(WebCarDbContext))]
-    [Migration("20230802104407_Initial")]
-    partial class Initial
+    [Migration("20230802151724_changeName")]
+    partial class changeName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,7 +127,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CarModelId");
 
-                    b.ToTable("tire", (string)null);
+                    b.ToTable("tire_size", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.CarModel", b =>

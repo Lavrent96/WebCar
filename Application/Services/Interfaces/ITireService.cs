@@ -9,10 +9,10 @@ namespace Application.Services.Interfaces
 {
     public interface ITireService
     {
-        Task<Tire> GetByIdAsync(int id);
-        Task<List<Tire>> GetAllAsync();
-        Task<List<Tire>> GetAsync();
-        Task<Tire> AddAsync(Tire tire);
-        Task<Tire> UpdateAsync(int id, Tire tire);
+        Task<TireSize> GetByIdAsync(int id);
+        Task<List<TireSize>> GetAllAsync();
+        Task<List<TireSize>> GetAsync();
+        Task<TireSize> AddAsync(TireSize tire);
+        Task<TireSize> UpdateAsync(int id, TireSize tire);
     }
 }

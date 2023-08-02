@@ -22,6 +22,6 @@ namespace Domain.Entities
         public CarBrand CarBrand { get; set; }
 
         // Navigation property to relate CarModel to Size
-        public ICollection<Tire> Tires { get; set; }
+        public ICollection<TireSize> Tires { get; set; }
     }
 }
