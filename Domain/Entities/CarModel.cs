@@ -14,6 +14,7 @@ namespace Domain.Entities
         public string Name { get; set; }
         public EngineType EngineType { get; set; }          
         public decimal Price { get; set; }
+        public int Year { get; set; }
         public string Description { get; set; }
 
         // Foreign key to relate CarModel to CarBrand
@@ -21,6 +22,6 @@ namespace Domain.Entities
         public CarBrand CarBrand { get; set; }
 
         // Navigation property to relate CarModel to Size
-        public TireSize Size { get; set; }
+        public ICollection<Tire> Tires { get; set; }
     }
 }

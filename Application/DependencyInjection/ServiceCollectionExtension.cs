@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Application.Commands;
+using Application.Services.Implementations;
+using Application.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +13,14 @@ namespace Application.DependencyInjection
 {
     public static class ServiceCollectionExtension
     {
+        public static void AddWebCarApplicationDI(this IServiceCollection services)
+        {
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCarModelCommand).Assembly));
+
+            // Services 
+            services.AddScoped<ICarModelService, CarModelService>();
+            services.AddScoped<ICarBrandService, CarBrandService>();
+            services.AddScoped<ITireService, TireService>();
+        }
     }
 }

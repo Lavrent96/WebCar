@@ -1,8 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model ListDataView
+
+@{
+    ViewBag.Title = "Create Car";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Create Car</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.SelectedCarBrandId, "Car Brand")
+        @Html.DropDownListFor(m => m.SelectedCarBrandId, Model.CarBrands, "-- Select Car Brand --", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SelectedCarModelId, "Car Model")
+        @Html.DropDownListFor(m => m.SelectedCarModelId, Model.CarModels, "-- Select Car Model --", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+}

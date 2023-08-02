@@ -1,7 +1,13 @@
+using Application.DependencyInjection;
+using WebCar.StartupExtensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.ConfigureAppServices();
+builder.Services.AddWebCarApplicationDI();
+builder.Services.ConfigureAppDbContext(builder.Configuration);
 
 var app = builder.Build();
 
