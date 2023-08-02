@@ -6,7 +6,7 @@
 
 <h2>Create Car</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("SubmitForm", "Home"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.SelectedCarBrandId, "Car Brand")
@@ -16,5 +16,5 @@
         @Html.LabelFor(m => m.SelectedCarModelId, "Car Model")
         @Html.DropDownListFor(m => m.SelectedCarModelId, Model.CarModels, "-- Select Car Model --", new { @class = "form-control" })
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button  type="submit" class="btn btn-primary">Create</button>
 }

@@ -25,10 +25,11 @@ namespace WebCar.Controllers
         {
             var res = new Domain.Entities.CarBrand()
             {
-                Name = "BMW",
-                Description = "BMW",
+                Name = "Mercedes Benz",
+                Description = "Mercedes Benz",
                 LogoUrl = ""
             };
+
 
             var carModel = new CreateCarBrandCommand(res);
              await _mediator.Send(carModel);
@@ -39,6 +40,21 @@ namespace WebCar.Controllers
             var listDataView = new ListDataView();
             await PopulateDropdownsAsync(listDataView);
             return View(listDataView);
+        }
+
+        [HttpPost()]
+        public Task<ActionResult> SubmitForm(ListDataView model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // If the form data is invalid, return to the form view with validation errors
+            }
+
+            // Perform your custom logic based on the form data
+            // For example, you can log the selected values
+
+            // Redirect to a success page or another action
+            return null;
         }
 
         private async Task PopulateDropdownsAsync(ListDataView listDataView)
