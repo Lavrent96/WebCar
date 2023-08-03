@@ -18,6 +18,11 @@ namespace Infrastructure.Database.Repositories
             _dbSet = context.Set<TireSize>();
         }
 
+        public async Task<List<TireSize>> GetByCarModelIdAsync(int carModelId)
+        {
+            return await _dbSet.Where(e => e.CarModelId == carModelId).ToListAsync();
+        }
+
         public async Task<TireSize> GetByIdAsync(int id)
         {
             return await _dbSet.FirstOrDefaultAsync(e => e.Id == id);

@@ -6,7 +6,7 @@
 
 <h2>Create Car</h2>
 
-@using (Html.BeginForm("SubmitForm", "Home"))
+@using (Html.BeginForm("CarDetails", "Home"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.SelectedCarBrandId, "Car Brand")
@@ -41,8 +41,30 @@
                     carModelDropdown.empty();
                     $.each(data, function (index, carModel) {
                         carModelDropdown.append($('<option>', {
-                            value: carModel.id, // Adjust property name as needed
-                            text: carModel.name // Adjust property name as needed
+                            value: carModel.id, 
+                            text: carModel.name 
+                        }));
+                    });
+                },
+                error: function (error) {
+                    console.log('Error fetching car models:', error);
+                }
+            });
+        });
+
+        $('#SelectedCarModelId').change(function () {
+            var selectedCarModelId = $(this).val();
+            $.ajax({
+                url: '@Url.Action("GetTireSizesByCarModel", "Home")',
+                type: 'GET',
+                data: { carModelId: selectedCarModelId },
+                success: function (data) {
+                    var carModelDropdown = $('#SelectedTireSizeId');
+                    carModelDropdown.empty();
+                    $.each(data, function (index, carModel) {
+                        carModelDropdown.append($('<option>', {
+                            value: carModel.id,
+                            text: carModel.diameter
                         }));
                     });
                 },

@@ -1,0 +1,52 @@
+﻿@using Domain.Entities;
+@model CarModel
+
+<h2>Search Results</h2>
+
+@if (Model is null)
+{
+    <p>No results found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Engine Type</th>
+                <th>Price</th>
+                <th>Year</th>
+                <th>Description</th>
+                <th>Car Brand</th>
+                <th>Tire Count</th>
+                <th>Tire Sizes</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.EngineType</td>
+                <td>@Model.Price</td>
+                <td>@Model.Year</td>
+                <td>@Model.Description</td>
+                <td>@Model.CarBrand.Name</td>
+                <td>@Model.Tires.Count</td>
+                <td>
+                    @if (@Model.Tires.Count > 0)
+                    {
+                        <ul>
+                            @foreach (var tire in @Model.Tires)
+                            {
+                                <li>@tire.Diameter - @tire.Width - @tire.AspectRatio - @tire.TireType</li>
+                            }
+                        </ul>
+                    }
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+}

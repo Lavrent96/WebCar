@@ -41,58 +41,9 @@ namespace Infrastructure.Database
                 new CarBrand
                 {
                     Id = 3,
-                    Description = "Iconic American automaker",
-                    LogoUrl = "https://example.com/brand3-logo.png",
-                    Name = "Ford",
-                },
-                new CarBrand
-                {
-                    Id = 4,
-                    Description = "Japanese automobile manufacturer",
-                    LogoUrl = "https://example.com/brand4-logo.png",
-                    Name = "Toyota",
-                },
-                new CarBrand
-                {
-                    Id = 5,
-                    Description = "Italian luxury sports cars",
-                    LogoUrl = "https://example.com/brand5-logo.png",
-                    Name = "Ferrari",
-                },
-                new CarBrand
-                {
-                    Id = 6,
                     Description = "German luxury and high-performance vehicles",
                     LogoUrl = "https://example.com/brand6-logo.png",
                     Name = "BMW",
-                },
-                new CarBrand
-                {
-                    Id = 7,
-                    Description = "Swedish manufacturer known for safety",
-                    LogoUrl = "https://example.com/brand7-logo.png",
-                    Name = "Volvo",
-                },
-                new CarBrand
-                {
-                    Id = 8,
-                    Description = "American luxury electric vehicles",
-                    LogoUrl = "https://example.com/brand8-logo.png",
-                    Name = "Tesla",
-                },
-                new CarBrand
-                {
-                    Id = 9,
-                    Description = "Japanese motorcycle manufacturer",
-                    LogoUrl = "https://example.com/brand9-logo.png",
-                    Name = "Honda",
-                },
-                new CarBrand
-                {
-                    Id = 10,
-                    Description = "British luxury sports cars",
-                    LogoUrl = "https://example.com/brand10-logo.png",
-                    Name = "Aston Martin",
                 }
             );
 
@@ -110,12 +61,12 @@ namespace Infrastructure.Database
                 new CarModel
                 {
                     Id = 2,
-                    Name = "Civic",
+                    Name = "C-Class",
                     EngineType = EngineType.Hybrid,
                     Price = 25000.00M,
                     Year = 2023,
                     Description = "Efficient and reliable urban vehicle",
-                    CarBrandId = 9,
+                    CarBrandId = 1,
                 },
                 new CarModel
                 {
@@ -125,16 +76,16 @@ namespace Infrastructure.Database
                     Price = 60000.00M,
                     Year = 2023,
                     Description = "Luxurious SUV with advanced features",
-                    CarBrandId = 6,
+                    CarBrandId = 3,
                 },
                 new CarModel
                 {
                     Id = 4,
-                    Name = "Mustang",
+                    Name = "X6",
                     EngineType = EngineType.Gasoline,
                     Price = 40000.00M,
                     Year = 2023,
-                    Description = "Iconic American muscle car",
+                    Description = "Luxurious SUV with advanced features",
                     CarBrandId = 3,
                 },
                 new CarModel
@@ -145,7 +96,7 @@ namespace Infrastructure.Database
                     Price = 80000.00M,
                     Year = 2023,
                     Description = "High-performance electric sedan",
-                    CarBrandId = 8,
+                    CarBrandId = 2,
                 },
                 new CarModel
                 {
@@ -160,42 +111,12 @@ namespace Infrastructure.Database
                 new CarModel
                 {
                     Id = 7,
-                    Name = "C-Class",
-                    EngineType = EngineType.Gasoline,
-                    Price = 45000.00M,
-                    Year = 2023,
-                    Description = "Elegant luxury sedan",
-                    CarBrandId = 1,
-                },
-                new CarModel
-                {
-                    Id = 8,
-                    Name = "Model 3",
-                    EngineType = EngineType.Electric,
-                    Price = 35000.00M,
-                    Year = 2023,
-                    Description = "Affordable electric compact",
-                    CarBrandId = 8,
-                },
-                new CarModel
-                {
-                    Id = 9,
-                    Name = "Accord",
-                    EngineType = EngineType.Hybrid,
-                    Price = 28000.00M,
-                    Year = 2023,
-                    Description = "Reliable and spacious family car",
-                    CarBrandId = 9,
-                },
-                new CarModel
-                {
-                    Id = 10,
                     Name = "E-Pace",
                     EngineType = EngineType.Diesel,
                     Price = 40000.00M,
                     Year = 2023,
                     Description = "Compact luxury SUV",
-                    CarBrandId = 7,
+                    CarBrandId = 1,
                 }
             );
 
@@ -208,7 +129,7 @@ namespace Infrastructure.Database
                              Width = 195,
                              AspectRatio = 65,
                              TireType = TireType.AllSeason,
-                             CarModelId = 2,
+                             CarModelId = 1,
                          },
                          new TireSize
                          {
@@ -217,7 +138,7 @@ namespace Infrastructure.Database
                              Width = 205,
                              AspectRatio = 60,
                              TireType = TireType.AllSeason,
-                             CarModelId = 2,
+                             CarModelId = 1,
                          },
                          new TireSize
                          {
@@ -226,37 +147,89 @@ namespace Infrastructure.Database
                              Width = 215,
                              AspectRatio = 55,
                              TireType = TireType.AllSeason,
-                             CarModelId = 2,
+                             CarModelId = 1,
                          },
-                         // Example 2: CarModel gives the result 17, 18, 19
-                         new TireSize
-                         {
-                             Id = 4,
-                             Diameter = 17,
-                             Width = 225,
-                             AspectRatio = 50,
-                             TireType = TireType.Summer,
-                             CarModelId = 5,
-                         },
+                          new TireSize
+                          {
+                              Id = 4,
+                              Diameter = 15,
+                              Width = 195,
+                              AspectRatio = 65,
+                              TireType = TireType.AllSeason,
+                              CarModelId = 2,
+                          },
                          new TireSize
                          {
                              Id = 5,
-                             Diameter = 18,
-                             Width = 235,
-                             AspectRatio = 45,
-                             TireType = TireType.Summer,
-                             CarModelId = 5,
+                             Diameter = 16,
+                             Width = 205,
+                             AspectRatio = 60,
+                             TireType = TireType.AllSeason,
+                             CarModelId = 2,
                          },
                          new TireSize
                          {
                              Id = 6,
-                             Diameter = 19,
-                             Width = 245,
-                             AspectRatio = 40,
+                             Diameter = 17,
+                             Width = 215,
+                             AspectRatio = 55,
+                             TireType = TireType.AllSeason,
+                             CarModelId = 2,
+                         },
+                         new TireSize
+                         {
+                             Id = 7,
+                             Diameter = 17,
+                             Width = 225,
+                             AspectRatio = 50,
                              TireType = TireType.Summer,
-                             CarModelId = 5,
-                         }
-                            );
+                             CarModelId = 3,
+                         },
+                         new TireSize
+                         {
+                             Id = 8,
+                             Diameter = 18,
+                             Width = 235,
+                             AspectRatio = 45,
+                             TireType = TireType.Summer,
+                             CarModelId = 3,
+                         },
+                         new TireSize
+                         {
+                             Id = 9,
+                             Diameter = 18,
+                             Width = 235,
+                             AspectRatio = 45,
+                             TireType = TireType.Summer,
+                             CarModelId = 4,
+                         },
+                         new TireSize
+                         {
+                             Id = 10,
+                             Diameter = 18,
+                             Width = 235,
+                             AspectRatio = 45,
+                             TireType = TireType.Summer,
+                             CarModelId =5,
+                         },
+                         new TireSize
+                         {
+                             Id = 11,
+                             Diameter = 18,
+                             Width = 235,
+                             AspectRatio = 45,
+                             TireType = TireType.Summer,
+                             CarModelId =6,
+                         },
+                         new TireSize
+                         {
+                             Id = 12,
+                             Diameter = 18,
+                             Width = 235,
+                             AspectRatio = 45,
+                             TireType = TireType.Summer,
+                             CarModelId =7,
+                         });
 
             modelBuilder.ApplyConfiguration(new CarBrandEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CarModelEntityConfiguration());

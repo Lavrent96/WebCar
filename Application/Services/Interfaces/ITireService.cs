@@ -12,6 +12,7 @@ namespace Application.Services.Interfaces
         Task<TireSize> GetByIdAsync(int id);
         Task<List<TireSize>> GetAllAsync();
         Task<List<TireSize>> GetAsync();
+        Task<List<TireSize>> GetByCarModelIdAsync(int carModelId);
         Task<TireSize> AddAsync(TireSize tire);
         Task<TireSize> UpdateAsync(int id, TireSize tire);
     }

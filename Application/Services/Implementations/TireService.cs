@@ -28,6 +28,11 @@ namespace Application.Services.Implementations
             return await _tireRepository.GetAll();
         }
 
+        public async Task<List<TireSize>> GetByCarModelIdAsync(int carModelId)
+        {
+            return await _tireRepository.GetByCarModelIdAsync(carModelId);
+        }
+
         public async Task<TireSize> GetByIdAsync(int id)
         {
             throw new NotImplementedException();

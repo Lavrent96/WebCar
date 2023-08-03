@@ -34,18 +34,10 @@ namespace WebCar.Controllers
         }
 
         [HttpPost()]
-        public Task<ActionResult> SubmitForm(ListDataView model)
+        public async Task<ActionResult> CarDetails(ListDataView model)
         {
-            if (!ModelState.IsValid)
-            {
-                // If the form data is invalid, return to the form view with validation errors
-            }
-
-            // Perform your custom logic based on the form data
-            // For example, you can log the selected values
-
-            // Redirect to a success page or another action
-            return null;
+           var result = await _carModelService.GetByIdAsync(model.SelectedCarModelId);
+            return View(result);
         }
 
         [HttpGet]
@@ -55,6 +47,14 @@ namespace WebCar.Controllers
             var result= await _carModelService.GetAllByBrandIdAsync(carBrandId);
             return Json(result);    
 
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetTireSizesByCarModel(int carModelId)
+        {
+            var result = await _tireService.GetByCarModelIdAsync(carModelId);
+
+            return Json(result);
         }
         private async Task PopulateDropdownsAsync(ListDataView listDataView)
         {
@@ -77,7 +77,7 @@ namespace WebCar.Controllers
 
             listDataView.TireSize = tireSizes.Select(model => new SelectListItem
             {
-                Text = model.Width.ToString(),
+                Text = model.Diameter.ToString(),
                 Value = model.Id.ToString()
             }).ToList();
 

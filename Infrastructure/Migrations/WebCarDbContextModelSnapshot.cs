@@ -67,58 +67,9 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            Description = "Iconic American automaker",
-                            LogoUrl = "https://example.com/brand3-logo.png",
-                            Name = "Ford"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Japanese automobile manufacturer",
-                            LogoUrl = "https://example.com/brand4-logo.png",
-                            Name = "Toyota"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Italian luxury sports cars",
-                            LogoUrl = "https://example.com/brand5-logo.png",
-                            Name = "Ferrari"
-                        },
-                        new
-                        {
-                            Id = 6,
                             Description = "German luxury and high-performance vehicles",
                             LogoUrl = "https://example.com/brand6-logo.png",
                             Name = "BMW"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Swedish manufacturer known for safety",
-                            LogoUrl = "https://example.com/brand7-logo.png",
-                            Name = "Volvo"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "American luxury electric vehicles",
-                            LogoUrl = "https://example.com/brand8-logo.png",
-                            Name = "Tesla"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Japanese motorcycle manufacturer",
-                            LogoUrl = "https://example.com/brand9-logo.png",
-                            Name = "Honda"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Description = "British luxury sports cars",
-                            LogoUrl = "https://example.com/brand10-logo.png",
-                            Name = "Aston Martin"
                         });
                 });
 
@@ -177,17 +128,17 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CarBrandId = 9,
+                            CarBrandId = 1,
                             Description = "Efficient and reliable urban vehicle",
                             EngineType = 3,
-                            Name = "Civic",
+                            Name = "C-Class",
                             Price = 25000.00m,
                             Year = 2023
                         },
                         new
                         {
                             Id = 3,
-                            CarBrandId = 6,
+                            CarBrandId = 3,
                             Description = "Luxurious SUV with advanced features",
                             EngineType = 1,
                             Name = "X5",
@@ -198,16 +149,16 @@ namespace Infrastructure.Migrations
                         {
                             Id = 4,
                             CarBrandId = 3,
-                            Description = "Iconic American muscle car",
+                            Description = "Luxurious SUV with advanced features",
                             EngineType = 0,
-                            Name = "Mustang",
+                            Name = "X6",
                             Price = 40000.00m,
                             Year = 2023
                         },
                         new
                         {
                             Id = 5,
-                            CarBrandId = 8,
+                            CarBrandId = 2,
                             Description = "High-performance electric sedan",
                             EngineType = 2,
                             Name = "Model S",
@@ -228,36 +179,6 @@ namespace Infrastructure.Migrations
                         {
                             Id = 7,
                             CarBrandId = 1,
-                            Description = "Elegant luxury sedan",
-                            EngineType = 0,
-                            Name = "C-Class",
-                            Price = 45000.00m,
-                            Year = 2023
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CarBrandId = 8,
-                            Description = "Affordable electric compact",
-                            EngineType = 2,
-                            Name = "Model 3",
-                            Price = 35000.00m,
-                            Year = 2023
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CarBrandId = 9,
-                            Description = "Reliable and spacious family car",
-                            EngineType = 3,
-                            Name = "Accord",
-                            Price = 28000.00m,
-                            Year = 2023
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CarBrandId = 7,
                             Description = "Compact luxury SUV",
                             EngineType = 1,
                             Name = "E-Pace",
@@ -305,7 +226,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = 1,
                             AspectRatio = 65,
-                            CarModelId = 2,
+                            CarModelId = 1,
                             Diameter = 15,
                             TireType = 0,
                             Width = 195
@@ -314,7 +235,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = 2,
                             AspectRatio = 60,
-                            CarModelId = 2,
+                            CarModelId = 1,
                             Diameter = 16,
                             TireType = 0,
                             Width = 205
@@ -323,7 +244,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = 3,
                             AspectRatio = 55,
-                            CarModelId = 2,
+                            CarModelId = 1,
                             Diameter = 17,
                             TireType = 0,
                             Width = 215
@@ -331,15 +252,60 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = 4,
+                            AspectRatio = 65,
+                            CarModelId = 2,
+                            Diameter = 15,
+                            TireType = 0,
+                            Width = 195
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AspectRatio = 60,
+                            CarModelId = 2,
+                            Diameter = 16,
+                            TireType = 0,
+                            Width = 205
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AspectRatio = 55,
+                            CarModelId = 2,
+                            Diameter = 17,
+                            TireType = 0,
+                            Width = 215
+                        },
+                        new
+                        {
+                            Id = 7,
                             AspectRatio = 50,
-                            CarModelId = 5,
+                            CarModelId = 3,
                             Diameter = 17,
                             TireType = 1,
                             Width = 225
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 8,
+                            AspectRatio = 45,
+                            CarModelId = 3,
+                            Diameter = 18,
+                            TireType = 1,
+                            Width = 235
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AspectRatio = 45,
+                            CarModelId = 4,
+                            Diameter = 18,
+                            TireType = 1,
+                            Width = 235
+                        },
+                        new
+                        {
+                            Id = 10,
                             AspectRatio = 45,
                             CarModelId = 5,
                             Diameter = 18,
@@ -348,12 +314,21 @@ namespace Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 6,
-                            AspectRatio = 40,
-                            CarModelId = 5,
-                            Diameter = 19,
+                            Id = 11,
+                            AspectRatio = 45,
+                            CarModelId = 6,
+                            Diameter = 18,
                             TireType = 1,
-                            Width = 245
+                            Width = 235
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AspectRatio = 45,
+                            CarModelId = 7,
+                            Diameter = 18,
+                            TireType = 1,
+                            Width = 235
                         });
                 });
 

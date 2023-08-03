@@ -20,7 +20,7 @@ namespace Infrastructure.Database.Repositories
 
         public async Task<CarModel> GetByIdAsync(int id)
         {
-            return await _dbSet.Include(e=>e.Tires).FirstOrDefaultAsync(e => e.Id == id);
+            return await _dbSet.Include(e=>e.CarBrand).Include(e=>e.Tires).FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<List<CarModel>> GetByBrandIdAsync(int brandId)
