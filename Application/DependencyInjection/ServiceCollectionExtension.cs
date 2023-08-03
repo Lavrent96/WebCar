@@ -16,7 +16,7 @@ namespace Application.DependencyInjection
         {
 
             // Services 
-            services.AddScoped<ICarModelService, CarModelService>();
+        //    services.AddScoped<ICarModelService, CarModelService>();
             services.AddScoped<ICarBrandService, CarBrandService>();
             services.AddScoped<ITireService, TireService>();
         }

@@ -2,6 +2,7 @@
 using Application.Services.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
+using Infrastructure.Database.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,13 +15,14 @@ namespace WebCar.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ICarModelService _carModelService;
+        //  private readonly ICarModelService _carModelService;
         private readonly ICarBrandService _carBrandService;
         private readonly ITireService _tireService;
-        public HomeController(ILogger<HomeController> logger, ICarModelService carModelService, ICarBrandService carBrandService, ITireService tireService)
+        CarRepository carRepository = new CarRepository("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=webcar-app-sqldb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public HomeController(ILogger<HomeController> logger, ICarBrandService carBrandService, ITireService tireService)
         {
             _logger = logger;
-            _carModelService = carModelService;
+            //    _carModelService = carModelService;
             _carBrandService = carBrandService;
             _tireService = tireService;
         }
@@ -36,16 +38,16 @@ namespace WebCar.Controllers
         [HttpPost()]
         public async Task<ActionResult> CarDetails(ListDataView model)
         {
-           var result = await _carModelService.GetByIdAsync(model.SelectedCarModelId);
+            var result = await carRepository.GetByIdAsync(model.SelectedCarModelId);
             return View(result);
         }
 
         [HttpGet]
-        public async  Task<JsonResult> GetCarModelsByBrand(int carBrandId)
+        public async Task<JsonResult> GetCarModelsByBrand(int carBrandId)
         {
 
-            var result= await _carModelService.GetAllByBrandIdAsync(carBrandId);
-            return Json(result);    
+            var result = await carRepository.GetAllByBrandIdAsync(carBrandId);
+            return Json(result);
 
         }
 
@@ -58,9 +60,9 @@ namespace WebCar.Controllers
         }
         private async Task PopulateDropdownsAsync(ListDataView listDataView)
         {
-            var carBrands = await _carBrandService.GetAllAsync();
-            var carModels = await _carModelService.GetAllAsync();
-            var tireSizes = await _tireService.GetAllAsync();
+            var carModels = await carRepository.GetAllCarModels();
+            var carBrands = await carRepository.GetAllCarBrands();
+            var tireSizes = await carRepository.GetAllTireSizes();
 
             listDataView.CarBrands = carBrands.Select(brand => new SelectListItem
             {

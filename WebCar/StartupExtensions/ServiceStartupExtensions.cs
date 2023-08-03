@@ -17,15 +17,22 @@ namespace WebCar.StartupExtensions
                 options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddDebug()));
             }, ServiceLifetime.Scoped);
 
+            // Apply database migrations on application startup
+            using (var serviceScope = services.BuildServiceProvider().CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetRequiredService<WebCarDbContext>();
+                dbContext.Database.Migrate();
+            }
 
             return services;
         }
+
 
         public static IServiceCollection ConfigureAppServices(this IServiceCollection services)
         {
             // Repositories
             services.AddScoped<ICarBrandRepository, CarBrandRepository>();
-            services.AddScoped<ICarModelRepository, CarModelRepository>();
+//services.AddScoped<ICarModelRepository, CarModelRepository>();
             services.AddScoped<ITireRepository, TireRepository>();
 
             return services;
