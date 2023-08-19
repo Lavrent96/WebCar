@@ -16,6 +16,8 @@ namespace Infrastructure.Database
         {
         }
 
+
+
         public DbSet<CarBrand> CarBrands { get; set; }
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<TireSize> Tires { get; set; }
